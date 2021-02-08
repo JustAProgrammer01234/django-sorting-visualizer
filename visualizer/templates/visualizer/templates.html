@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sorting Visualizer</title>
+    </head>
+    <meta charset = "utf-8">
+    <style>
+        body{
+            background: grey;
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .navbar button {
+            float: left;
+            font-size: 20px;
+            color: red;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .dropdown {
+
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 20px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .navbar button:hover, .dropdown:hover .dropbtn {
+            color: white;
+            background-color: red;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content button {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <body>
+        <div class = "navbar">
+            <button value = "newarr">Generate new array</button>
+            <div class = "dropdown">
+                <button class = "dropbtn">Algorithms
+                    <i class = "caret-down"></i>
+                </button>
+                <div class = "dropdown-content">
+                    <button value = "bubble">Bubble Sort</button>
+                    <button value = "insertion">Insertion Sort</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
