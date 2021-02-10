@@ -15,9 +15,8 @@ def insertion_sort(arr):
             yield arr
         arr[j + 1] = char  
 
-#[14,7,4,2,5,7,9]
 if __name__ == '__main__':
-    arr = [random.randrange(50,100) for i in range(1, 50)]
+    arr = [random.randrange(50,100) for i in range(1, 60)]
     print(arr)
     print('')
     arr_check = arr[:]
