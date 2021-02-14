@@ -2,10 +2,16 @@
 <html>
     <head>
         <meta charset = "utf-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
         <title>Sorting Visualizer</title>
         <style>
             body {
                 background: grey;
+            }
+            .roomarray {
+                bottom: 0;
+                position: absolute;
+                left: 2px
             }
             .navbar {
                 background-color: #333;
@@ -16,7 +22,7 @@
                 display: inline-block;
                 color: white;
                 text-align: center;
-                padding: 14px 16px;
+                padding: 19px 21px;
                 text-decoration: none;
                 cursor: pointer;
             }
@@ -28,10 +34,16 @@
     <body>
         <div class = "navbar">
             <form method = 'GET'>
-                <button name = "genarr" method = "POST">Generate new array!</button>
+                <button name = "genarr">Generate new array!</button>
                 <button name = "bubble">Bubble Sort</button>
                 <button name = "insertion">Insertion Sort</button>
             </form>
         </div>
+        <div class = "roomarray">
+            {% for num in info.array %}
+            <div class = "barrarray" style = "display: inline-block; background-color: black; width: 5px;  height: {{ num }}px;">
+            </div>
+            {% endfor %}
+        </div>
     </body>
-</html>
+</html> 
