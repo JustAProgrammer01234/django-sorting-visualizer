@@ -14,7 +14,7 @@ def insertion_sort(arr):
             j -=1
             yield arr
         arr[j + 1] = char  
-
+        
 if __name__ == '__main__':
     arr = [random.randrange(50,100) for i in range(1, 60)]
     print(arr)
@@ -22,6 +22,6 @@ if __name__ == '__main__':
     arr_check = arr[:]
     arr_check.sort()
     for array in insertion_sort(arr):
-        time.sleep(0.0005)
         print(array)
+        time.sleep(0.0005)
     assert arr == arr_check

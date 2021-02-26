@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset = "utf-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
         <title>Sorting Visualizer</title>
         <style>
             body {
@@ -11,7 +9,7 @@
             .roomarray {
                 bottom: 0;
                 position: absolute;
-                left: 2px
+                left: 1px;
             }
             .navbar {
                 background-color: #333;
@@ -40,10 +38,28 @@
             </form>
         </div>
         <div class = "roomarray">
+            {% if info.bubble_sort %}
+
+            <script>
+                console.log({{ info.array }})
+            </script>
+            
+            {% elif info.insertion_sort %}
+
+            <script>
+                console.log({{ info.array }})
+            </script>
+
+            {% else %}
+
             {% for num in info.array %}
-            <div class = "barrarray" style = "display: inline-block; background-color: black; width: 5px;  height: {{ num }}px;">
+            <div style = "display: inline-block; background-color: black; width: 5px;  height: {{ num }}px;">
             </div>
             {% endfor %}
+
+
+            {% endif %}
+
         </div>
     </body>
-</html> 
+</html>  
