@@ -10,13 +10,5 @@ def main(request):
 
     if 'genarr' in request.GET:
         information["array"] = [random.randrange(100,900) for _ in range(284)]
-
-    elif 'bubble' in request.GET:
-        information["bubble_sort"] = True
-        information["insertion_sort"] = False
-        
-    elif 'insertion' in request.GET:
-        information["bubble_sort"] = False
-        information["insertion_sort"] = True
                 
     return render(request, 'visualizer/templates.html', {'info': information})   

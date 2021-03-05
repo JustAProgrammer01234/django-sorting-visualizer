@@ -7,6 +7,8 @@
                 background: grey;
             }
             .roomarray {
+                width: auto;
+                height: 90%;
                 bottom: 0;
                 position: absolute;
                 left: 1px;
@@ -17,12 +19,14 @@
             .navbar button {
                 background-color: #333;
                 border: none;
-                display: inline-block;
                 color: white;
                 text-align: center;
                 padding: 19px 21px;
                 text-decoration: none;
                 cursor: pointer;
+            }
+            .navbar form {
+                display: inline-block;
             }
             .navbar button:hover {
                 background-color: red;
@@ -31,35 +35,17 @@
     </head>
     <body>
         <div class = "navbar">
-            <form method = 'GET'>
+            <form method = "GET">
                 <button name = "genarr">Generate new array!</button>
-                <button name = "bubble">Bubble Sort</button>
-                <button name = "insertion">Insertion Sort</button>
             </form>
+            <button name = "bubble">Bubble Sort</button>
+            <button name = "insertion">Insertion Sort</button>
         </div>
         <div class = "roomarray">
-            {% if info.bubble_sort %}
-
-            <script>
-                console.log({{ info.array }})
-            </script>
-            
-            {% elif info.insertion_sort %}
-
-            <script>
-                console.log({{ info.array }})
-            </script>
-
-            {% else %}
-
             {% for num in info.array %}
             <div style = "display: inline-block; background-color: black; width: 5px;  height: {{ num }}px;">
             </div>
             {% endfor %}
-
-
-            {% endif %}
-
         </div>
     </body>
 </html>  
