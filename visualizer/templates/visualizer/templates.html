@@ -6,8 +6,7 @@
             body {
                 background: grey;
             }
-            .roomarray {
-                width: auto;
+            #roomarray {
                 height: 90%;
                 bottom: 0;
                 position: absolute;
@@ -38,14 +37,35 @@
             <form method = "GET">
                 <button name = "genarr">Generate new array!</button>
             </form>
-            <button name = "bubble">Bubble Sort</button>
-            <button name = "insertion">Insertion Sort</button>
+            <button name = "bubble" onclick = "bubble_sort()">Bubble Sort</button>
+            <button name = "insertion" onclick = "insertion_sort()">Insertion Sort</button>
         </div>
-        <div class = "roomarray">
-            {% for num in info.array %}
-            <div style = "display: inline-block; background-color: black; width: 5px;  height: {{ num }}px;">
-            </div>
-            {% endfor %}
+        <div id = "roomarray">
+
+            <script>
+
+                var array = {{ info.array }};
+
+                function bubble_sort() {
+                    array.sort()
+                }
+
+                function insertion_sort() {
+                    array.sort()
+                } 
+
+                for (var i = 0; i < array.length; i++) {
+                    var bar = document.createElement('div');
+                    bar.style.display = 'inline-block';
+                    bar.style.backgroundColor = "black";
+                    bar.style.border = "1px solid grey";
+                    bar.style.width = '' + window.innerWidth / array.length + 'px';
+                    bar.style.height = '' + array[i] + 'px';
+                    document.getElementById("roomarray").appendChild(bar)
+                }
+
+            </script>
+            
         </div>
     </body>
 </html>  
