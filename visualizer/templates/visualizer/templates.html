@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset = "UTF-8">
         <title>Sorting Visualizer</title>
         <style>
             body {
@@ -46,19 +47,41 @@
                 var array = {{ info.array }};
 
                 function bubble_sort() {
-                   let index = 1
-                   for (var i = 0; i < array.length; i++) {
-                       for (var j = 0; i < array.length - index; i++) {
-                            // Going to swap the two chars by id.
-                       }
-                       index++
+
+                    var bar = document.getElementById('bar0')
+                    console.log(bar.offsetHeight - 2)
+                    console.log(bar)
+
+                    let index = 1
+
+                    for (var i = 0; i < array.length - index; i++) {                
+
+                        for (var j = 0; i < array.length - index; i++) {
+
+                            let first_bar = document.getElementById('bar' + i);
+                            let second_bar = document.getElementById('bar' + i - 1);
+
+                            if (first_bar.offsetHeight - 2 > second_bar.offsetHeight - 2) {
+
+                                first_bar.style.backgroundColor = 'red';
+                                second_bar.style.backgroundColor = 'red';
+
+                                first_bar.style.height = second_bar.offsetHeight - 2 + 'px';
+                                second_bar.style.height = first_bar.offsetHeight - 2 + 'px';
+
+                            } else {
+                                first_bar.style.backgroundColor = 'green';
+                                second_bar.style.backgroundColor = 'green';
+                            }
+                            index++
+                        }   
                     }
                 }
 
                 function insertion_sort() {
                     // pass
                 }
-                
+
                 for (var i = 0; i < array.length; i++) {
                     var bar = document.createElement('div');
                     bar.setAttribute('id','bar' + i)
