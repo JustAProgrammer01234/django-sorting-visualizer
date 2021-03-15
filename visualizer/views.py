@@ -10,5 +10,5 @@ def main(request):
 
     if 'genarr' in request.GET:
         information["array"] = [random.randrange(100,900) for _ in range(284)]
-                
+                        
     return render(request, 'visualizer/templates.html', {'info': information})   

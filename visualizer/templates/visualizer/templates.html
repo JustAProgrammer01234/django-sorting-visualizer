@@ -8,6 +8,7 @@
             }
             #roomarray {
                 height: 90%;
+                width: auto;
                 bottom: 0;
                 position: absolute;
                 left: 1px;
@@ -41,31 +42,34 @@
             <button name = "insertion" onclick = "insertion_sort()">Insertion Sort</button>
         </div>
         <div id = "roomarray">
-
             <script>
-
                 var array = {{ info.array }};
 
                 function bubble_sort() {
-                    array.sort()
+                   let index = 1
+                   for (var i = 0; i < array.length; i++) {
+                       for (var j = 0; i < array.length - index; i++) {
+                            // Going to swap the two chars by id.
+                       }
+                       index++
+                    }
                 }
 
                 function insertion_sort() {
-                    array.sort()
-                } 
-
+                    // pass
+                }
+                
                 for (var i = 0; i < array.length; i++) {
                     var bar = document.createElement('div');
+                    bar.setAttribute('id','bar' + i)
                     bar.style.display = 'inline-block';
                     bar.style.backgroundColor = "black";
                     bar.style.border = "1px solid grey";
-                    bar.style.width = '' + window.innerWidth / array.length + 'px';
-                    bar.style.height = '' + array[i] + 'px';
+                    bar.style.width = window.innerWidth / array.length + 'px';
+                    bar.style.height = array[i] + 'px';
                     document.getElementById("roomarray").appendChild(bar)
                 }
-
             </script>
-            
         </div>
     </body>
 </html>  

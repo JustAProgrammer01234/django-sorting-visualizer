@@ -1,3 +1,4 @@
+import time
 import random
                     
 def bubble_sort(arr):
@@ -18,4 +19,5 @@ if __name__ == '__main__':
     arr_check.sort()
     for array in bubble_sort(arr):
         print(array)
+        time.sleep(0.000005)
     assert arr == arr_check 
