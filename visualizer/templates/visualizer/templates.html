@@ -46,40 +46,43 @@
             <script>
                 var array = {{ info.array }};
 
-                function bubble_sort() {
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms))
+                }
 
-                    var bar = document.getElementById('bar0')
-                    console.log(bar.offsetHeight - 2)
-                    console.log(bar)
-
-                    let index = 1
-
-                    for (var i = 0; i < array.length - index; i++) {                
-
-                        for (var j = 0; i < array.length - index; i++) {
-
-                            let first_bar = document.getElementById('bar' + i);
-                            let second_bar = document.getElementById('bar' + i + 1);
-
-                            if (first_bar.offsetHeight - 2 > second_bar.offsetHeight - 2) {
-
-                                first_bar.style.backgroundColor = 'red';
-                                second_bar.style.backgroundColor = 'red';
-
-                                first_bar.style.height = second_bar.offsetHeight - 2 + 'px';
-                                second_bar.style.height = first_bar.offsetHeight - 2 + 'px';
-
-                            } else {
-                                first_bar.style.backgroundColor = 'green';
-                                second_bar.style.backgroundColor = 'green';
-                            }
-                            index++
-                        }   
+                async function algo_done() {
+                    for (var i = 0; i < array.length; i++) {
+                        document.getElementById('bar' + i).style.backgroundColor = 'Green';
+                        await sleep(0.00000005);
+                    } for (var j = 0; j < array.length; j++) {
+                        document.getElementById('bar' + j).style.backgroundColor = 'black';
+                        await sleep(0.00000005);
                     }
                 }
 
+                async function bubble_sort() {
+                    var index = 1
+                    for (var i = 0; i < array.length - index; i++) {
+                        for (var j = 0; j < array.length - index; j++) {
+                            var second = j + 1
+                            document.getElementById('bar' + j).style.backgroundColor = 'red';
+                            document.getElementById('bar' + second).style.backgroundColor = 'red';
+                            let bar0 = document.getElementById('bar' + j);
+                            let bar1 = document.getElementById('bar' + second);
+                            if (bar0.offsetHeight - 2 > bar1.offsetHeight - 2) {
+                                var tmp = bar0.offsetHeight - 2;
+                                document.getElementById('bar' + j).style.height = bar1.offsetHeight - 2 + 'px';
+                                document.getElementById('bar' + second).style.height = tmp + 'px';
+                            } else {
+                                document.getElementById('bar' + j).style.backgroundColor = 'black';
+                                document.getElementById('bar' + second).style.backgroundColor = 'black';
+                            } await sleep(0.0000000000000000000000000000000005)
+                        } index ++
+                    } algo_done()
+                }
+
                 function insertion_sort() {
-                    // pass
+                    algo_done()
                 }
 
                 for (var i = 0; i < array.length; i++) {
@@ -95,4 +98,4 @@
             </script>
         </div>
     </body>
-</html>  
+</html>
