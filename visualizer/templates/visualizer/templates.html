@@ -8,8 +8,9 @@
                 background: grey;
             }
             #roomarray {
+                margin: auto;
                 height: 90%;
-                width: auto;
+                width: 100%;
                 bottom: 0;
                 position: absolute;
                 left: 1px;
@@ -52,37 +53,46 @@
 
                 async function algo_done() {
                     for (var i = 0; i < array.length; i++) {
-                        document.getElementById('bar' + i).style.backgroundColor = 'Green';
+                        document.getElementById('bar' + i).style.backgroundColor = 'LightGreen';
                         await sleep(0.00000005);
                     } for (var j = 0; j < array.length; j++) {
                         document.getElementById('bar' + j).style.backgroundColor = 'black';
-                        await sleep(0.00000005);
                     }
                 }
 
                 async function bubble_sort() {
                     var index = 1
-                    for (var i = 0; i < array.length - index; i++) {
+                    for (var i = 0; i < array.length; i++) {
                         for (var j = 0; j < array.length - index; j++) {
+
+                            await sleep(0.000000000000000000000000000000000000000000001);
+
                             var second = j + 1
-                            document.getElementById('bar' + j).style.backgroundColor = 'red';
-                            document.getElementById('bar' + second).style.backgroundColor = 'red';
                             let bar0 = document.getElementById('bar' + j);
                             let bar1 = document.getElementById('bar' + second);
+
                             if (bar0.offsetHeight - 2 > bar1.offsetHeight - 2) {
+
                                 var tmp = bar0.offsetHeight - 2;
+
                                 document.getElementById('bar' + j).style.height = bar1.offsetHeight - 2 + 'px';
                                 document.getElementById('bar' + second).style.height = tmp + 'px';
-                            } else {
-                                document.getElementById('bar' + j).style.backgroundColor = 'black';
-                                document.getElementById('bar' + second).style.backgroundColor = 'black';
-                            } await sleep(0.0000000000000000000000000000000005)
+                            }
                         } index ++
                     } algo_done()
                 }
 
-                function insertion_sort() {
-                    algo_done()
+                async function insertion_sort() {
+                    for (var i = 1; i < array.length; i++) {
+                        let first_char = document.getElementById('bar' + i);
+                        let second =  i - 1;
+                        let second_char = document.getElementById('bar' + second);
+                        while (second >= 0 && first_char.offsetHeight - 2 < second_char.offsetHeight - 2) {
+                            document.getElementById('bar' + (second + 1)).style.height = second_char.offsetHeight - 2 + 'px';
+                            second -= 1
+                            await sleep(0.000000000000000000000000000000000000000000001)
+                        } document.getElementById('bar' + (second + 1)).style.height = first_char.offsetHeight - 2 + 'px';
+                    } algo_done()
                 }
 
                 for (var i = 0; i < array.length; i++) {
@@ -91,7 +101,7 @@
                     bar.style.display = 'inline-block';
                     bar.style.backgroundColor = "black";
                     bar.style.border = "1px solid grey";
-                    bar.style.width = window.innerWidth / array.length + 'px';
+                    bar.style.width = document.getElementById('roomarray').offsetHeight / array.length + 'px';
                     bar.style.height = array[i] + 'px';
                     document.getElementById("roomarray").appendChild(bar)
                 }
