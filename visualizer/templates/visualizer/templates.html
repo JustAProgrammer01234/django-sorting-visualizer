@@ -83,16 +83,21 @@
                 }
 
                 async function insertion_sort() {
-                    for (var i = 1; i < array.length; i++) {
-                        let first_char = document.getElementById('bar' + i);
-                        let second =  i - 1;
-                        let second_char = document.getElementById('bar' + second);
-                        while (second >= 0 && first_char.offsetHeight - 2 < second_char.offsetHeight - 2) {
-                            document.getElementById('bar' + (second + 1)).style.height = second_char.offsetHeight - 2 + 'px';
-                            second -= 1
-                            await sleep(0.000000000000000000000000000000000000000000001)
-                        } document.getElementById('bar' + (second + 1)).style.height = first_char.offsetHeight - 2 + 'px';
-                    } algo_done()
+                    for (let i = 1; i < array.length; i++) {
+
+                        let current = document.getElementById('bar' + i).offsetHeight - 2;
+                        let j = i - 1;
+
+                        while ((j > -1) && (current < document.getElementById('bar' + j).offsetHeight - 2)) {
+                         
+                            document.getElementById('bar' + (j + 1)).style.height = document.getElementById('bar' + j).offsetHeight - 2 + 'px';
+                            j--;
+                            await sleep(0.000000000000000000000000000000000000000000001);
+
+                        } 
+                        document.getElementById('bar' + (j + 1)).style.height = current + 'px';
+                    } 
+                    algo_done();
                 }
 
                 for (var i = 0; i < array.length; i++) {
