@@ -65,7 +65,7 @@
                     for (var i = 0; i < array.length; i++) {
                         for (var j = 0; j < array.length - index; j++) {
 
-                            await sleep(0.000000000000000000000000000000000000000000001);
+                            await sleep(0.01);
 
                             var second = j + 1
                             let bar0 = document.getElementById('bar' + j);
@@ -92,7 +92,7 @@
                          
                             document.getElementById('bar' + (j + 1)).style.height = document.getElementById('bar' + j).offsetHeight - 2 + 'px';
                             j--;
-                            await sleep(0.000000000000000000000000000000000000000000001);
+                            await sleep(0.001);
 
                         } 
                         document.getElementById('bar' + (j + 1)).style.height = current + 'px';
