@@ -10,7 +10,6 @@
             #roomarray {
                 margin: auto;
                 height: 90%;
-                width: 100%;
                 bottom: 0;
                 position: absolute;
                 left: 1px;
@@ -96,6 +95,7 @@
 
                         } 
                         document.getElementById('bar' + (j + 1)).style.height = current + 'px';
+                        await sleep(0.001)
                     } 
                     algo_done();
                 }
